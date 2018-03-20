@@ -1,0 +1,24 @@
+Tema 3 - Beldeanu Calin-Victor 335CA
+
+	Am inceput implementarea temei citind din fisierul topologie.in 
+structura arborelui. Fiecare proces(adica nod al arborelui) are o
+lista de copii si isi cunoaste parintele. Toate aceste lucruri le-am
+realizat in functia "topologyFromFile". Fiecare nod are asociat rank-ul
+de aceeasi valoare.
+	Dupa ce am terminat cu topologia am citit fisierul de imagini.in si
+am salvat datele .Fiecare proces cunoaste marimea fisierului de imagini.
+	Partea cea mai mare a temei consta in realizarea functiei "applyFilter"
+in care rank 0 trimite la copii dimensiunile matricii pe care trebuie sa o
+prelucreze apoi asteapta sa primeasca de la copii rezultatele prelucrarii ca
+sa creeze noua matrice. Impartirea se face egal pentru vecini mai putin ultimul
+care primeste si partea care ramane in cazul in care inaltimea nu 
+se imparte in mod egal la numarul de vecini. Rank 0 scrie noua imagine res-
+pectand header-ul dat in enunt.Celelalte procese primesc datele de la radacina
+sau parinte, verifica daca mai au vecini iar daca nu mai au vecini inseamna ca sunt 
+frunze si incep sa aplice filtrul dat pe partea din imagine primita. Dupa ce au terminat
+aplicarea filtrului trimit la parinte rezultatul . In cazul in care nodul nu este
+frunza acesta imparte matricea si trimite noile date la copii.
+	Dupa ce imaginea a fost prelucrata rank 0 asteapta de la celelalte procese sa 
+ii trimita statistica lor. Nodurile care nu sunt root daca sunt frunze trimit direct
+la parinte iar celelalte asteapta de la toti copii statistica si actualizeaza vectorul.
+Dupa ce rank 0 a primit de la toti copii acesta o sa scrie in statistica.out datele.
